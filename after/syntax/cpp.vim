@@ -43,6 +43,7 @@ if exists('g:cpp_class_scope_highlight') && g:cpp_class_scope_highlight
     syn match    cCustomClass    "\w\+\s*::" 
                 \contains=cCustomScope 
     " hi def link cCustomClass Function  " disabled for now
+    hi def link cCustomClass Typedef
     syn match   cCustomClass    "\<\u\w*\s*\>" 
 endif
 
@@ -1386,7 +1387,8 @@ if version >= 508 || !exists("did_cpp_syntax_inits")
   HiLink cppSTLfunction     Function
   HiLink cppSTLfunctional   Typedef
   HiLink cppSTLconstant     Constant
-  HiLink cppSTLnamespace    Constant
+  "HiLink cppSTLnamespace    Constant
+  HiLink cppSTLnamespace    Typedef
   HiLink cppSTLtype         Typedef
   HiLink cppSTLexception    Exception
   HiLink cppSTLiterator     Typedef
