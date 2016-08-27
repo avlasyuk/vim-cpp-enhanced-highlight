@@ -32,10 +32,11 @@
 "   http://stackoverflow.com/questions/736701/class-function-names-highlighting-in-vim
 " -----------------------------------------------------------------------------
 
-" Functions
-syn match   cCustomParen    "(" contains=cParen contains=cCppParen
-syn match   cCustomFunc     "\w\+\s*(\@="
-hi def link cCustomFunc  Function
+syn match cCustomComma "\,"
+syn match cCustomSemicolon ";"
+"hi def link cCustomComma Comment
+hi def link cCustomParen Comment
+hi def link cCustomSemicolon Comment
 
 " Class and namespace scope
 if exists('g:cpp_class_scope_highlight') && g:cpp_class_scope_highlight
@@ -46,6 +47,16 @@ if exists('g:cpp_class_scope_highlight') && g:cpp_class_scope_highlight
     hi def link cCustomClass Typedef
     syn match   cCustomClass    "\<\u\w*\s*\>" 
 endif
+
+syn match   cCustomConstant    "\<[A-Z][A-Z_0-9]*\s*\>"
+hi def link cCustomConstant Constant
+
+" Functions
+syn match   cCustomParen    "(" contains=cParen contains=cCppParen
+syn match   cCustomParen    "("
+syn match   cCustomParen    ")"
+syn match   cCustomFunc     "\w\+\s*(\@="
+hi def link cCustomFunc  Function
 
 " Template functions
 if exists('g:cpp_experimental_template_highlight') && g:cpp_experimental_template_highlight
