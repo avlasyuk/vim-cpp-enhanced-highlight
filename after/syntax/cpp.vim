@@ -42,6 +42,7 @@ hi def link cCustomSemicolon Comment
 hi def link cCustomCurlyBrace Comment
 hi def link cCustomSquareBrace Comment
 
+
 " Class and namespace scope
 if exists('g:cpp_class_scope_highlight') && g:cpp_class_scope_highlight
     syn match    cCustomScope    "::"
@@ -56,7 +57,7 @@ syn match   cCustomConstant    "\<[A-Z][A-Z_0-9]*\s*\>"
 hi def link cCustomConstant Constant
 
 " Functions
-syn match   cCustomParen    "(" contains=cParen contains=cCppParen
+"syn match   cCustomParen    "[()]" contains=cParen contains=cCppParen
 syn match   cCustomParen    "("
 syn match   cCustomParen    ")"
 syn match   cCustomFunc     "\w\+\s*(\@="
@@ -101,6 +102,11 @@ if exists('g:cpp_experimental_template_highlight') && g:cpp_experimental_templat
     syn match   cTemplateOperatorDeclare "\<operator\_s*<\_[^;()]\{-}>[<>]=\?" 
                 \contains=cppOperator,cCustomOperator,cCustomAngleBracketStart 
 endif
+
+syntax keyword cppScopeOutStatement return
+syntax keyword cppScopeOutStatement break
+syntax keyword cppScopeOutStatement continue
+syntax keyword cppScopeOutStatement throw
 
 " Alternative syntax that is used in:
 "  http://www.vim.org/scripts/script.php?script_id=3064
