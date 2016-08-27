@@ -34,9 +34,13 @@
 
 syn match cCustomComma "\,"
 syn match cCustomSemicolon ";"
+syn match cCustomCurlyBrace "[{}]"
+syn match cCustomSquareBrace "[\[\]]"
 "hi def link cCustomComma Comment
 hi def link cCustomParen Comment
 hi def link cCustomSemicolon Comment
+hi def link cCustomCurlyBrace Comment
+hi def link cCustomSquareBrace Comment
 
 " Class and namespace scope
 if exists('g:cpp_class_scope_highlight') && g:cpp_class_scope_highlight
@@ -44,7 +48,7 @@ if exists('g:cpp_class_scope_highlight') && g:cpp_class_scope_highlight
     syn match    cCustomClass    "\w\+\s*::" 
                 \contains=cCustomScope 
     " hi def link cCustomClass Function  " disabled for now
-    hi def link cCustomClass Typedef
+    hi def link cCustomClass Type
     syn match   cCustomClass    "\<\u\w*\s*\>" 
 endif
 
@@ -661,7 +665,7 @@ syntax keyword cppSTLtype key_type
 syntax keyword cppSTLtype ldiv_t
 syntax keyword cppSTLtype list
 syntax keyword cppSTLtype lldiv_t
-syntax keyword cppSTLtype map
+syntax match cppSTLtype "std::map" contains=cCustomScope contains=cppSTLnamespace
 syntax keyword cppSTLtype mapped_type
 syntax keyword cppSTLtype mask_array
 syntax keyword cppSTLtype mem_fun1_t
