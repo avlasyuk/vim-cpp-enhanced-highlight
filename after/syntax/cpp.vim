@@ -37,11 +37,10 @@ syn match cCustomSemicolon ";"
 syn match cCustomCurlyBrace "[{}]"
 syn match cCustomSquareBrace "[\[\]]"
 "hi def link cCustomComma Comment
-hi def link cCustomParen Comment
-hi def link cCustomSemicolon Comment
-hi def link cCustomCurlyBrace Comment
-hi def link cCustomSquareBrace Comment
-
+"hi def link cCustomParen Conceal
+"hi def link cCustomSemicolon Conceal
+"hi def link cCustomCurlyBrace Conceal
+"hi def link cCustomSquareBrace Conceal
 
 " Class and namespace scope
 if exists('g:cpp_class_scope_highlight') && g:cpp_class_scope_highlight
@@ -107,6 +106,7 @@ syntax keyword cppScopeOutStatement return
 syntax keyword cppScopeOutStatement break
 syntax keyword cppScopeOutStatement continue
 syntax keyword cppScopeOutStatement throw
+syntax keyword cppScopeOutStatement goto
 
 " Alternative syntax that is used in:
 "  http://www.vim.org/scripts/script.php?script_id=3064
